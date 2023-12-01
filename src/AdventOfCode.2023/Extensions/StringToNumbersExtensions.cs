@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode._2023.Helpers;
+﻿namespace AdventOfCode._2023.Extensions;
 
 public static class StringToNumbersExtensions
 {
