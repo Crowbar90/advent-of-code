@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services)
         => services
             .AddPuzzleSolver<Day01Solver>(Day01Solver.Day)
+            .AddPuzzleSolver<Day02Solver>(Day02Solver.Day)
             .AddDefaultPuzzleSolvers()
             .AddResolver();
 }
