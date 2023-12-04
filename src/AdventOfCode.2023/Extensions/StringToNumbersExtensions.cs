@@ -87,4 +87,11 @@ public static class StringToNumbersExtensions
             }
         }
     }
+    
+    public static IEnumerable<int> ParseNumberList(
+        this string line)
+        => line
+            .Split(' ')
+            .Where(s => !string.IsNullOrWhiteSpace(s))
+            .Select(t => int.Parse(t.Trim()));
 }
