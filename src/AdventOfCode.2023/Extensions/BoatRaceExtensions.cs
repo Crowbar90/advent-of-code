@@ -33,35 +33,21 @@ public static class BoatRaceExtensions
 
     public static long CountNewRecords(
         this BoatRace boatRace)
-        => boatRace.GetLastNewRecord() - boatRace.GetFirstNewRecord() + 1;
-
-    private static long GetFirstNewRecord(
-        this BoatRace boatRace)
     {
-        for (var i = 0L; i <= boatRace.MaxTime; i++)
-            if (boatRace.IsNewRecord(i))
-                return i;
-
-        throw new ApplicationException();
+        var roundedRoots = boatRace
+            .ToQuadraticEquation()
+            .RoundedRootsForStrictlyPositive(0, boatRace.MaxTime)
+            .ToArray();
+        return roundedRoots[1] - roundedRoots[0] + 1;
     }
 
-    private static long GetLastNewRecord(
+    private static QuadraticEquation ToQuadraticEquation(
         this BoatRace boatRace)
-    {
-        for (var i = boatRace.MaxTime; i >= 0L; i--)
-            if (boatRace.IsNewRecord(i))
-                return i;
+        => new()
+        {
+            A = -1,
+            B = boatRace.MaxTime,
+            C = -boatRace.RecordDistance
+        };
 
-        throw new ApplicationException();
-    }
-
-    private static long CalculateDistance(
-        this BoatRace boatRace,
-        long buttonPressedTime)
-        => buttonPressedTime * (boatRace.MaxTime - buttonPressedTime);
-
-    private static bool IsNewRecord(
-        this BoatRace boatRace,
-        long buttonPressedTime)
-        => boatRace.CalculateDistance(buttonPressedTime) > boatRace.RecordDistance;
 }
