@@ -2,7 +2,7 @@
 
 namespace AdventOfCode._2022.PuzzleSolvers;
 
-public class Day01Solver() : FilePuzzleSolverBase(Day)
+public class Day01Solver() : FilePuzzleSolverBase<int>(Day)
 {
     public const int Day = 1;
 

@@ -3,7 +3,7 @@ using AdventOfCode.Common.Services;
 
 namespace AdventOfCode._2023.PuzzleSolvers;
 
-public class Day02Solver() : FilePuzzleSolverBase(Day)
+public class Day02Solver() : FilePuzzleSolverBase<int>(Day)
 {
     public const int Day = 2;
 

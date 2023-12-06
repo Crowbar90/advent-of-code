@@ -4,7 +4,11 @@ namespace AdventOfCode.Common.Services;
 
 public interface IPuzzleSolver
 {
-    int SolvePuzzle1(string inputFileName);
-    int SolvePuzzle2(string inputFileName);
-    PuzzleSolution? Solve(string inputFileName);
+    IPuzzleSolution? Solve(string inputFileName);
+}
+
+public interface IPuzzleSolver<TResult> : IPuzzleSolver
+{
+    TResult SolvePuzzle1(string inputFileName);
+    TResult SolvePuzzle2(string inputFileName);
 }

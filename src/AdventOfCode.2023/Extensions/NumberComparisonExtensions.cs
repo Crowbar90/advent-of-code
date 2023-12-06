@@ -8,4 +8,11 @@ public static class NumberComparisonExtensions
         int higher)
         => number >= lower
            && number <= higher;
+
+    public static bool IsBetween(
+        this long number,
+        long lower,
+        long higher)
+        => number >= lower
+           && number <= higher;
 }

@@ -4,12 +4,12 @@ namespace AdventOfCode.Common.Services;
 
 public interface IAllPuzzlesSolver
 {
-    IEnumerable<PuzzleSolution> SolveAll();
+    IEnumerable<IPuzzleSolution> SolveAll();
 }
 
 public class AllPuzzlesSolver(IPuzzleSolverResolver resolver) : IAllPuzzlesSolver
 {
-    public IEnumerable<PuzzleSolution> SolveAll()
+    public IEnumerable<IPuzzleSolution> SolveAll()
         => Enumerable
             .Range(1, 25)
             .Select(day => (FileName: $"Inputs/day{day:00}.txt", Solver: resolver.GetSolverForDay(day)))

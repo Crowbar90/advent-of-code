@@ -1,8 +1,10 @@
 ﻿namespace AdventOfCode.Common.Models;
 
-public class PuzzleSolution
+public interface IPuzzleSolution;
+
+public class PuzzleSolution<TResult> : IPuzzleSolution
 {
     public int Day { get; init; }
-    public int Puzzle1 { get; init; }
-    public int Puzzle2 { get; init; }
+    public TResult Puzzle1 { get; init; }
+    public TResult Puzzle2 { get; init; }
 }
