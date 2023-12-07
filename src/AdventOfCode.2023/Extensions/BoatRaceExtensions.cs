@@ -49,5 +49,4 @@ public static class BoatRaceExtensions
             B = boatRace.MaxTime,
             C = -boatRace.RecordDistance
         };
-
 }
