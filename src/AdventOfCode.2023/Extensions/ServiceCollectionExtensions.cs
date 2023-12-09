@@ -17,6 +17,7 @@ public static class ServiceCollectionExtensions
             .AddPuzzleSolver<Day06Solver>(Day06Solver.Day)
             .AddPuzzleSolver<Day07Solver>(Day07Solver.Day)
             .AddPuzzleSolver<Day08Solver>(Day08Solver.Day)
+            .AddPuzzleSolver<Day09Solver>(Day09Solver.Day)
             .AddDefaultPuzzleSolvers()
             .AddResolver();
 }
